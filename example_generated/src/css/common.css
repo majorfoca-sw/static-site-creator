@@ -1,0 +1,87 @@
+/** COMMON **/
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+* { margin:0; padding:0; border: 0 none; position: relative; }
+
+:root {	
+	box-sizing: border-box;
+  
+  /** VARIABLES FONTS AND SIZES **/
+  --base-font-size: 1.125rem; /* 18px */
+  --base-line-height: 1.8125rem; /* 29px */
+  --background-color: #277;
+  --foreground-color: #FFF;
+}
+
+body {
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+  margin: 0;
+  padding: 0;
+}
+
+.invisible {
+  display:none;
+}
+
+.off {
+  opacity: 0;
+}
+
+
+.fadein,.fadeoff{
+  animation-iteration-count:1
+}
+.fadeoff{
+  opacity:0; animation-name:fadeOffOpacity; animation-timing-function:ease-out; animation-duration:1s;
+}
+.fadein{
+  opacity:1; animation-name:fadeInOpacity; animation-timing-function:ease-in; animation-duration:2s;
+}
+.loader{
+  position:absolute;
+  top:50%;
+  left:20%;
+  margin-left:10%
+}
+.dot{
+  width:24px;
+  height:24px;
+  background:#3ac;
+  border-radius:100%;
+  display:inline-block;
+  animation:slide 1s infinite
+}
+.dot:nth-child(1){
+  animation-delay:.1s;
+  background:#23b77e
+}
+.dot:nth-child(2){
+  animation-delay:.2s;background:#035762
+}
+.dot:nth-child(3){
+  animation-delay:.3s;background:#b92e50
+}
+.dot:nth-child(4){
+  animation-delay:.4s;background:#e4af43
+}
+.dot:nth-child(5),.dot:nth-child(6){
+  animation-delay:.5s;background:#ff7900
+}
+.dot:nth-child(6){
+  animation-delay:.6s
+}
+@media all and (min-width:768px){
+  .loader{left:35%}
+}
+
+@keyframes fadeInOpacity{ 0%{ opacity:0 }to{ opacity:1 } }
+@keyframes fadeOffOpacity{ 0%{ height:100vh;opacity:1 } to { height:0; opacity:0 } }
+@keyframes slide{
+  0%,to{ transform:scale(1) }
+  50%{ opacity:.2; transform:scale(2) }  
+}

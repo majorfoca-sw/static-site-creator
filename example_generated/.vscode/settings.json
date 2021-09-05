@@ -1,0 +1,5 @@
+{
+  "Pretty.Json.indentWidth": 2,
+  "Pretty.Json.detectIndentation": false,
+  "editor.tabSize": 2
+}
